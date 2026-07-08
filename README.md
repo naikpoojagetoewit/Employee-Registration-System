@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Employee Registration System (MERN CRUD)
 
 A simple full-stack CRUD app: React frontend + Node/Express backend + MongoDB database.
@@ -93,3 +94,6 @@ Base URL: `http://localhost:5000/api/employees`
 - Reusing one form for both Create and Update (conditional logic based on `editingEmployee`)
 - Axios for HTTP requests from React to Express
 - CORS handling between frontend (port 3000) and backend (port 5000)
+=======
+# Employee-Registration-System
+>>>>>>> 589185085e32b56f571bd2e016a54d050f22aef6
