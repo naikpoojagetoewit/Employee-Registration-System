@@ -1,62 +1,8 @@
-<<<<<<< HEAD
-# Employee Registration System (MERN CRUD)
-
-A simple full-stack CRUD app: React frontend + Node/Express backend + MongoDB database.
-
-## Folder structure
-```
-employee-crud/
-  backend/     -> Node.js + Express + Mongoose API
-  frontend/    -> React app
-```
-
-## Prerequisites
-- Node.js installed (v16+ recommended)
-- MongoDB installed locally OR a free MongoDB Atlas cluster (cloud)
-
----
-
-## STEP 1: Set up the Backend
-
-```
-cd backend
-npm install
-```
-
-Create a `.env` file (copy `.env.example` and rename it to `.env`):
-```
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/employeeDB
-```
-If you're using MongoDB Atlas, replace MONGO_URI with your Atlas connection string instead.
-
-Run the backend:
-```
-npm run dev
-```
-(uses nodemon so it restarts automatically on changes — or use `npm start` for plain node)
-
-You should see:
-```
-MongoDB connected successfully
-Server running on http://localhost:5000
-```
-
-Test it: open http://localhost:5000 in your browser — you should see
-"Employee Registration System API is running..."
-
----
-
-## STEP 2: Set up the Frontend
-
-Open a NEW terminal window (keep backend running):
-```
-cd frontend
-npm install
-npm start
-```
-
 This opens the app automatically at http://localhost:3000
+
+By default it talks to `http://localhost:5000/api/employees`. To point it at a deployed
+backend instead, set `REACT_APP_API_URL` in a `frontend/.env` file (or in your hosting
+provider's environment variable settings) to `<your-backend-url>/api/employees`.
 
 ---
 
@@ -93,7 +39,5 @@ Base URL: `http://localhost:5000/api/employees`
 - Lifting state up (App.js owns state, passes data/handlers down as props)
 - Reusing one form for both Create and Update (conditional logic based on `editingEmployee`)
 - Axios for HTTP requests from React to Express
-- CORS handling between frontend (port 3000) and backend (port 5000)
-=======
-# Employee-Registration-System
->>>>>>> 589185085e32b56f571bd2e016a54d050f22aef6
+- CORS handling between frontend and backend, restricted via `FRONTEND_URL` in production
+- Deploying a MERN app across three separate platforms (Netlify, Render, MongoDB Atlas)
