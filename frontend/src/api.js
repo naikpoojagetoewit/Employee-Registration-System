@@ -1,7 +1,10 @@
 import axios from "axios";
 
-// Base URL of the backend server
-const API_URL = "http://localhost:5000/api/employees";
+// Base URL of the backend server.
+// In development, falls back to localhost. In production (Netlify),
+// set REACT_APP_API_URL in the Netlify dashboard to your Render backend URL,
+// e.g. https://employee-crud-backend.onrender.com/api/employees
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api/employees";
 
 // Get all employees
 export const getEmployees = () => axios.get(API_URL);

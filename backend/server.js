@@ -8,7 +8,16 @@ const employeeRoutes = require("./routes/employeeRoutes");
 const app = express();
 
 // Middleware
-app.use(cors());
+// If FRONTEND_URL is set (e.g. your Netlify site), only allow that origin.
+// Otherwise allow all origins (fine for local dev).
+const allowedOrigin = process.env.FRONTEND_URL;
+app.use(
+  cors(
+    allowedOrigin
+      ? { origin: allowedOrigin }
+      : {}
+  )
+);
 app.use(express.json());
 
 // Routes
