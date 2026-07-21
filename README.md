@@ -1,3 +1,87 @@
+# Employee Registration System (MERN CRUD)
+
+A simple full-stack CRUD app: React frontend + Node/Express backend + MongoDB database.
+
+## Live Deployment
+
+- **Frontend (Netlify):** https://employee-registration-crud.netlify.app/
+- **Backend API (Render):** https://employee-crud-backend-hejh.onrender.com
+- **Database:** MongoDB Atlas
+
+### Deployment stack
+- Frontend hosted on Netlify, built from the `frontend/` directory
+- Backend hosted on Render as a Node.js web service, built from the `backend/` directory
+- Database hosted on MongoDB Atlas
+
+### Environment variables
+
+**Backend (Render):**
+| Variable | Description |
+|---|---|
+| `MONGO_URI` | MongoDB Atlas connection string |
+| `FRONTEND_URL` | Deployed Netlify URL, used to restrict CORS |
+
+**Frontend (Netlify):**
+| Variable | Description |
+|---|---|
+| `REACT_APP_API_URL` | Deployed Render backend URL + `/api/employees` |
+
+Note: Render's free tier spins down after inactivity — the first request after idle may take 30-50 seconds to respond while it wakes up.
+
+## Folder structure
+```
+employee-crud/
+  backend/     -> Node.js + Express + Mongoose API
+  frontend/    -> React app
+```
+
+## Prerequisites
+- Node.js installed (v16+ recommended)
+- MongoDB installed locally OR a free MongoDB Atlas cluster (cloud)
+
+---
+
+## STEP 1: Set up the Backend
+
+```
+cd backend
+npm install
+```
+
+Create a `.env` file (copy `.env.example` and rename it to `.env`):
+```
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/employeeDB
+FRONTEND_URL=
+```
+If you're using MongoDB Atlas, replace MONGO_URI with your Atlas connection string instead.
+
+Run the backend:
+```
+npm run dev
+```
+(uses nodemon so it restarts automatically on changes — or use `npm start` for plain node)
+
+You should see:
+```
+MongoDB connected successfully
+Server running on http://localhost:5000
+```
+
+Test it: open http://localhost:5000 in your browser — you should see
+"Employee Registration System API is running..."
+
+---
+
+## STEP 2: Set up the Frontend
+
+Open a NEW terminal window (keep backend running):
+```
+cd frontend
+npm install
+npm start
+```
+
 This opens the app automatically at http://localhost:3000
 
 By default it talks to `http://localhost:5000/api/employees`. To point it at a deployed
